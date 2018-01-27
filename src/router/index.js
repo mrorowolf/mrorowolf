@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+
 import Top from '@/components/top/page';
 import PlayerSetting from '@/components/player_setting/page';
 import RuleSetting from '@/components/rule_setting/page';

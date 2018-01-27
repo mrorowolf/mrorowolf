@@ -1,7 +1,7 @@
 export default class Player {
   constructor(name) {
     this.id = 0;
-    this.name = "";
+    this.name = name;
 
     this.team = 0;
     this.role = 0;
