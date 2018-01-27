@@ -1,12 +1,12 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
+  <div class="rule_confirm">
+    rule confirm
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
+  name: 'RuleConfirm',
 };
 </script>
 

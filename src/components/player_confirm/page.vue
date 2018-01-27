@@ -1,12 +1,12 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
+  <div class="player_confirm">
+    player confirm
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
+  name: 'PlayerConfirm',
 };
 </script>
 

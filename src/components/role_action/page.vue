@@ -1,12 +1,13 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
+  <div class="role_action">
+    role action
+    
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
+  name: 'RoleAction',
 };
 </script>
 

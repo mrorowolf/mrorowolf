@@ -1,12 +1,12 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
+  <div class="night_description">
+    night description
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
+  name: 'NightDescription',
 };
 </script>
 
