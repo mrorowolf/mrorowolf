@@ -1,13 +1,12 @@
 <template>
-  <div class="role_action">
-    role action
-    
+  <div class="game_result">
+    ゲーム結果
   </div>
 </template>
 
 <script>
 export default {
-  name: 'RoleAction',
+  name: 'GameResult',
 };
 </script>
 

@@ -1,6 +1,9 @@
 <template>
   <div class="night_description">
-    night description
+    <div class="title">ABOUT NIGHT</div>
+    <div class="message">夜について</div>
+
+    <router-link :to="{ name: 'NightEnter'}">GAME START</router-link>
   </div>
 </template>
 
