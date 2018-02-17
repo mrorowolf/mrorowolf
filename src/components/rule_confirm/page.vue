@@ -38,16 +38,11 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
+
 export default {
   name: 'RuleConfirm',
-  computed: {
-    roles() {
-      return this.$store.state.roles;
-    },
-    rules() {
-      return this.$store.state.rules;
-    }
-  },
+  computed: mapState(['roles', 'rules']),
   methods: {
     next() {
       this.$store.commit("serve_roles_to_player");

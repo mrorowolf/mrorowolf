@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
+
 export default {
   name: 'WolfAction',
   data: function() {
@@ -26,14 +28,9 @@ export default {
     }
   },
   computed: {
-    night_player_index() {
-      return this.$store.state.night_player_index;
-    },
+    ...mapState(['night_player_index','players']),
     player() {
       return this.$store.getters.night_player;
-    },
-    players() {
-      return this.$store.state.players;
     },
     alive_players() {
       return this.$store.getters.alive_players;

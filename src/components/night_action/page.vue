@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 import CitizenAction from './citizen_action.vue'
 import WolfAction from './wolf_action.vue'
 import KnightAction from './knight_action.vue'
@@ -18,6 +19,9 @@ export default {
   components: {
     "citizen-action": CitizenAction,
     "wolf-action": WolfAction,
+    "knight-action": KnightAction,
+    "teller-action": TellerAction,
+    "spirit-action": SpiritAction,
   },
   data: function() {
     return {
@@ -26,15 +30,10 @@ export default {
     }
   },
   computed: {
-    day() {
-      return this.$store.state.day;
-    },
+    ...mapState(['day', 'roles']),
     player() {
       return this.$store.getters.night_player;
     },
-    roles() {
-      return this.$store.state.roles;
-    }
   },
 };
 </script>

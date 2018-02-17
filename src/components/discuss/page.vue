@@ -13,7 +13,7 @@ export default {
   name: 'Discuss',
   data: function() {
     return {
-      "timer": 0,
+      "timer": 180,
     }
   },
   created: function() {

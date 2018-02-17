@@ -11,17 +11,14 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
+
 export default {
   name: 'CitizenAction',
   computed: {
-    night_player_index() {
-      return this.$store.state.night_player_index;
-    },
+    ...mapState(['night_player_index','players']),
     player() {
       return this.$store.getters.night_player;
-    },
-    players() {
-      return this.$store.state.players;
     },
     alive_players() {
       return this.$store.getters.alive_players;
@@ -30,7 +27,7 @@ export default {
   methods: {
     action(id, name) {
       if(window.confirm(name + 'さんを人狼だと疑いますか？')){
-        this.$store.commit("inc_dought", {"id": id});
+        this.$store.commit("inc_doubt", {"id": id});
 
         if(this.night_player_index < this.alive_players.length-1) {
           this.$store.commit('inc_night_player_index');

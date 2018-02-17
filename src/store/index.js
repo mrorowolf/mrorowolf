@@ -41,18 +41,52 @@ const store = new Vuex.Store({
     night_player(state) {
      return state.players[state.night_player_index];
     },
-    most_voted_player(state) {
-      let p = state.players[0]
-      for(let i=0; i<state.players.length; i++) {
-        if(p.votes < state.players[i].votes) {
-          p = state.players[i]
+    most_voted_players(state) {
+      let most_voted_players = [];
+      for(let p of state.players) {
+        if(p.votes > 0){
+          if(most_voted_players.length == 0) {
+            most_voted_players.push(p);
+          }else if(most_voted_players[0].votes < p.votes) {
+            most_voted_players = [p]
+          }
         }
       }
-      return p
+      return most_voted_players
+    },
+    killed_players(state) {
+      let killed_players = [];
+      for(let p of state.players) {
+        if(!p.save && p.kill > 0){
+          if(killed_players.length == 0){
+            killed_players.push(p)
+          }else if(killed_players[0].kill < p.kill) {
+            killed_players = [p];
+          }else if(killed_players[0].kill == p.kill) {
+            killed_players.push(p);
+          }
+        }
+      }
+      return killed_players
+    },
+    doubted_players(state) {
+      let doubted_players = [];
+      for(let p of state.players) {
+        if(p.doubt > 0){
+          if(doubted_players.length == 0){
+            doubted_players.push(p);
+          }else if(doubted_players[0].doubt < p.doubt) {
+            doubted_players = [p];
+          }else if(doubted_players[0].doubt == p.doubt) {
+            doubted_players.push(p);
+          }
+        }
+      }
+      return doubted_players;
     },
     game_finished(state) {
       return false;
-    }
+    },
   },
 
   mutations: {
@@ -123,18 +157,39 @@ const store = new Vuex.Store({
       state.players[payload.id].alive = false;
     },
     reset_votes(state, payload) {
-      for(let i=0; i<state.players.length; i++) {
-        state.players[i].votes = 0;
+      for(let p of state.players) {
+        p.votes = 0;
       }
     },
     inc_night_player_index(state, payload) {
       state.night_player_index += 1;
     },
-    inc_dought(state, payload) {
-      state.players[payload.id].dought += 1;
+    inc_doubt(state, payload) {
+      state.players[payload.id].doubt += 1;
     },
     inc_kill(state, payload) {
       state.players[payload.id].kill += payload.point;
+    },
+    save(state, payload) {
+      state.players[payload.id].save = true;
+    },
+    fortune(state, payload) {
+      state.players[payload.id].fortune = true;
+    },
+    kill_players(state, payload) {
+      for(let p of payload.killed_players) {
+        p.alive = false;
+      }
+    },
+    inc_day(state, payload) {
+      state.day += 1;
+    },
+    reset_night(state, payload) {
+      state.night_player_index = 0;
+      for(let p of state.players) {
+        p.kill = 0;
+        p.doubt = 0;
+      }
     }
   },
 

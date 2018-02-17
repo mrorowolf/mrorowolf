@@ -8,17 +8,18 @@
       {{ player.name }}
     </div>
 
+    <button v-if='!player.alive' @click="skip">SKIP</button>
     <button @click="confirm">ENTER</button>
   </div>
 </template>
 
 <script>
+import {mapState} from 'vuex'
+
 export default {
   name: 'PlayerConfirm',
   computed: {
-    day() {
-      return this.$store.state.day;
-    },
+    ...mapState(['day']),
     player() {
       return this.$store.getters.night_player;
     }
@@ -26,7 +27,18 @@ export default {
   methods: {
     confirm() {
       if(window.confirm(this.player.name + 'さんですか？')){
-        this.$router.push({ name: 'NightAction'});
+        if(this.player.alive){
+          this.$router.push({ name: 'NightAction'});
+        }else{
+          this.$store.commit('inc_night_player_index');
+          this.$router.push({ name: 'PlayerConfirm'});
+        }
+      }
+    },
+    skip() {
+      if(window.confirm('スキップしますか？')){
+        this.$store.commit('inc_night_player_index');
+        this.$router.push({ name: 'PlayerConfirm'});
       }
     }
   }

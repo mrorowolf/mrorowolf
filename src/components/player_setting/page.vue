@@ -15,13 +15,11 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
+
 export default {
   name: 'PlayerSetting',
-  computed: {
-    players() {
-      return this.$store.state.players;
-    }
-  },
+  computed: mapState(['players']),
   methods: {
     add_player() {
       const name = window.prompt('ユーザー名を入力してください', '');
