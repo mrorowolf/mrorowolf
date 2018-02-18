@@ -1,10 +1,15 @@
 <template>
   <div class="discuss">
-    {{ ('00' + (Math.floor(timer/60))).slice(-2) }}:{{ ('00'+(timer%60)).slice(-2) }}
-    <button @click="inc_time(60)">+</button>
-    <button @click="dec_time(60)">-</button>
-    <button @click="finish">discuss finish</button>
-    <router-link :to="{ name: 'DiscussFinish'}">議論終了</router-link>
+    <div class='timer'>
+      {{ ('00' + (Math.floor(timer/60))).slice(-2) }}:{{ ('00'+(timer%60)).slice(-2) }}
+    </div>
+
+    <div class='time_set_button'>
+      <button @click="inc_time(60)">+</button>
+      <button @click="dec_time(60)">-</button>
+    </div>
+
+    <button @click="next">議論終了</button>
   </div>
 </template>
 
@@ -13,7 +18,7 @@ export default {
   name: 'Discuss',
   data: function() {
     return {
-      "timer": 0,
+      "timer": 180,
     }
   },
   created: function() {
@@ -31,8 +36,8 @@ export default {
         this.timer -= t;
       }
     },
-    finish() {
-      this.timer = 0;
+    next() {
+      this.$router.push({ name: 'DiscussFinish'});
     }
   }
 };
