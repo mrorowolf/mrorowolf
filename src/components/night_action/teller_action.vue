@@ -9,7 +9,7 @@
           占う
         </button>
         <div class="dead" v-if="p.fortune && !p.alive">
-          {{ roles.role_names[p.role] }}
+          {{ p.telled_name }}
         </div>
         <div class="dead" v-if="!p.fortune && !p.alive">死亡</div>
       </div>
@@ -18,7 +18,7 @@
     <!-- 占い後 -->
     <div class="teller_result" v-if='telled'>
       <div>{{ players[telled_id].name }}さんは</div>
-      <div>{{ roles.role_names[players[telled_id].role] }}</div>
+      <div>{{ players[telled_id].telled_name }}</div>
       <button @click="next">OK</button>
     </div>
   </div>
@@ -40,9 +40,6 @@ export default {
     player() {
       return this.$store.getters.night_player;
     },
-    alive_players() {
-      return this.$store.getters.alive_players;
-    }
   },
   methods: {
     action(id, name) {
@@ -53,7 +50,7 @@ export default {
       }
     },
     next() {
-      if(this.night_player_index < this.alive_players.length-1) {
+      if(this.night_player_index < this.players.length-1) {
         this.$store.commit('inc_night_player_index');
         this.$router.push({ name: 'PlayerConfirm'});
       }else{

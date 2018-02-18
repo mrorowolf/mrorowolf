@@ -19,7 +19,7 @@ import {mapState} from 'vuex'
 export default {
   name: 'PlayerConfirm',
   computed: {
-    ...mapState(['day']),
+    ...mapState(['day', 'night_player_index', 'players']),
     player() {
       return this.$store.getters.night_player;
     }
@@ -30,15 +30,18 @@ export default {
         if(this.player.alive){
           this.$router.push({ name: 'NightAction'});
         }else{
-          this.$store.commit('inc_night_player_index');
-          this.$router.push({ name: 'PlayerConfirm'});
+          this.skip();
         }
       }
     },
     skip() {
       if(window.confirm('スキップしますか？')){
-        this.$store.commit('inc_night_player_index');
-        this.$router.push({ name: 'PlayerConfirm'});
+        if(this.night_player_index < this.players.length-1) {
+          this.$store.commit('inc_night_player_index');
+          this.$router.push({ name: 'PlayerConfirm'});
+        }else{
+          this.$router.push({ name: 'NightResult'});
+        }
       }
     }
   }

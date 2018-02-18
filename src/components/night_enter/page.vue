@@ -1,22 +1,24 @@
 <template>
   <div class="night_enter">
     <div class="title">
-      THE {{ day+1 }}ST NIGHT
+      THE {{ day+1 }} NIGHT
     </div>
 
-    <div class="message" v-if="day == 0">
-      みなさんおそろしい夜がやってきました。
+    <div class='message'>
+      <div v-if="day == 0">
+        みなさんおそろしい夜がやってきました。
+      </div>
+
+      <div v-if="day > 0">
+        容疑者を処分したにもかかわらず、再びおそろしい夜がやってきました。
+      </div>
+
+      <div>
+        {{ players[0].name }}さんから順番に、夜のアクションを行なってください。
+      </div>
     </div>
 
-    <div class="message" v-if="day > 0">
-      容疑者を処分したにもかかわらず、再びおそろしい夜がやってきました。
-    </div>
-
-    <div>
-      {{ players[0].name }}さんから順番に、夜のアクションを行なってください。
-    </div>
-
-    <router-link :to="{ name: 'PlayerConfirm'}">OK</router-link>
+    <button @click="next">OK</button>
   </div>
 </template>
 
@@ -28,6 +30,11 @@ export default {
   computed: {
     ...mapState(['day', 'players']),
   },
+  methods: {
+    next() {
+      this.$router.push({ name: 'PlayerConfirm'});
+    }
+  }
 };
 </script>
 

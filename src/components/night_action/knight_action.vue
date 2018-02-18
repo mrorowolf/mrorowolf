@@ -24,16 +24,13 @@ export default {
     player() {
       return this.$store.getters.night_player;
     },
-    alive_players() {
-      return this.$store.getters.alive_players;
-    }
   },
   methods: {
     action(id, name) {
       if(window.confirm(name + 'さんを人狼から守りますか？')){
         this.$store.commit("save", {"id": id});
 
-        if(this.night_player_index < this.alive_players.length-1) {
+        if(this.night_player_index < this.players.length-1) {
           this.$store.commit('inc_night_player_index');
           this.$router.push({ name: 'PlayerConfirm'});
         }else{

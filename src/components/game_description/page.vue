@@ -30,13 +30,18 @@
       </div>
     </div>
 
-    <router-link :to="{ name: 'NightDescription'}">OK</router-link>
+    <button @click="next">OK</button>
   </div>
 </template>
 
 <script>
 export default {
   name: 'GameDescription',
+  methods: {
+    next() {
+      this.$router.push({ name: 'NightDescription'});
+    }
+  }
 };
 </script>
 

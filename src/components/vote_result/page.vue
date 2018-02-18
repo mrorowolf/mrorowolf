@@ -48,11 +48,12 @@ export default {
     next() {
       this.$store.commit("reset_votes");
 
-      if(this.finished) {
+      if(this.finished == -1) {
+        this.$store.commit('inc_day');
+        this.$router.push({ name: 'NightEnter'});
+      }else{
         this.$router.push({ name: 'GameResult'});
       }
-      this.$store.commit('inc_day');
-      this.$router.push({ name: 'NightEnter'});
     }
   }
 };

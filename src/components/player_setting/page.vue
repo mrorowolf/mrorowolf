@@ -19,7 +19,7 @@ import {mapState} from 'vuex'
 
 export default {
   name: 'PlayerSetting',
-  computed: mapState(['players']),
+  computed: mapState(['players', 'game']),
   methods: {
     add_player() {
       const name = window.prompt('ユーザー名を入力してください', '');
@@ -34,8 +34,8 @@ export default {
     },
     go_rule_setting() {
       if(this.players.length > 2) {
-        this.$store.commit("set_player_id");
         this.$store.commit("set_init_role_counts");
+        this.$store.commit("set_player_id");
         this.$router.push({ name: 'RuleSetting'});
       }else{
         alert("3人以上登録してください。");

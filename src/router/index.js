@@ -16,6 +16,7 @@ import DiscussFinish from '@/components/discuss_finish/page';
 import VoteDescription from '@/components/vote_description/page';
 import VotePlayer from '@/components/vote_player/page';
 import VoteResult from '@/components/vote_result/page';
+import GameResult from '@/components/game_result/page';
 
 Vue.use(Router);
 
@@ -36,5 +37,6 @@ export default new Router({
     { path: '/vote_description', name: 'VoteDescription', component: VoteDescription },
     { path: '/vote_player', name: 'VotePlayer', component: VotePlayer },
     { path: '/vote_result', name: 'VoteResult', component: VoteResult },
+    { path: '/game_result', name: 'GameResult', component: GameResult },
   ],
 });

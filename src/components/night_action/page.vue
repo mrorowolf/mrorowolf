@@ -1,6 +1,6 @@
 <template>
   <div class="night_action">
-    night ACTION
+    NIGHT ACTION
     <div class="role">{{ roles.role_names[player.role] }}</div>
     <component :is="action_list[player.role]"></component>
   </div>

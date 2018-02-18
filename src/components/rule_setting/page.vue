@@ -15,7 +15,7 @@
       <button @click="toggle_hide_votes_count">投票数を隠す</button>
     </div>
 
-    <router-link :to="{ name: 'RuleConfirm'}">決定</router-link>
+    <button @click="next">決定</button>
   </div>
 </template>
 
@@ -44,6 +44,9 @@ export default {
     },
     toggle_hide_votes_count() {
       this.$store.commit("toggle_hide_votes_count");
+    },
+    next() {
+      this.$router.push({ name: 'RuleConfirm'});
     }
   }
 };

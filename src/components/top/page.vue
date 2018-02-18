@@ -1,12 +1,17 @@
 <template>
   <div class="top">
-    <router-link :to="{ name: 'PlayerSetting'}">始める</router-link>
+    <button @click="next">始める</button>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Top',
+  methods: {
+    next() {
+      this.$router.push({ name: 'PlayerSetting'});
+    }
+  }
 };
 </script>
 
