@@ -3,13 +3,18 @@
     <div class="title">ABOUT NIGHT</div>
     <div class="message">夜について</div>
 
-    <router-link :to="{ name: 'NightEnter'}">GAME START</router-link>
+    <button @click="next">GAME START</button>
   </div>
 </template>
 
 <script>
 export default {
   name: 'NightDescription',
+  methods: {
+    next() {
+      this.$router.push({ name: 'NightEnter'});
+    }
+  }
 };
 </script>
 
