@@ -1,5 +1,7 @@
 <template>
   <div class="rule_confirm">
+    <div class='title'>rule confirm</div>
+
     <div class="roles">
       <div class="role" v-for="(r, index) in roles.role_names" :key="index">
         <div class="role_name">{{ r }}</div>
@@ -52,5 +54,18 @@ export default {
 };
 </script>
 
-<style>
+<style lang='scss' scoped>
+.rule_confirm {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #111;
+  color: #fff;
+
+  .title {
+    width: 100%;
+    padding-top: 5%;
+    text-align: center;
+    font-size: 2rem;
+  }
+}
 </style>
