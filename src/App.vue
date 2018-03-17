@@ -20,7 +20,6 @@ export default {
   box-sizing: border-box;
 
   font-family: "YuMincho";
-  font-size: 1.5rem;
 }
 #app {
   width: 100vw;

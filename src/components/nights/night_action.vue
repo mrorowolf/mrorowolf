@@ -8,11 +8,11 @@
 
 <script>
 import {mapState} from 'vuex'
-import CitizenAction from './citizen_action.vue'
-import WolfAction from './wolf_action.vue'
-import KnightAction from './knight_action.vue'
-import TellerAction from './teller_action.vue'
-import SpiritAction from './spirit_action.vue'
+import CitizenAction from './night_actions/citizen_action.vue'
+import WolfAction from './night_actions/wolf_action.vue'
+import KnightAction from './night_actions/knight_action.vue'
+import TellerAction from './night_actions/teller_action.vue'
+import SpiritAction from './night_actions/spirit_action.vue'
 
 export default {
   name: 'NightAction',

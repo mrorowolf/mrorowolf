@@ -1,22 +1,26 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import Top from '@/components/top/page';
-import PlayerSetting from '@/components/player_setting/page';
-import RuleSetting from '@/components/rule_setting/page';
-import RuleConfirm from '@/components/rule_confirm/page';
-import GameDescription from '@/components/game_description/page';
-import NightDescription from '@/components/night_description/page';
-import NightEnter from '@/components/night_enter/page';
-import PlayerConfirm from '@/components/player_confirm/page';
-import NightAction from '@/components/night_action/page';
-import NightResult from '@/components/night_result/page';
-import Discuss from '@/components/discuss/page';
-import DiscussFinish from '@/components/discuss_finish/page';
-import VoteDescription from '@/components/vote_description/page';
-import VotePlayer from '@/components/vote_player/page';
-import VoteResult from '@/components/vote_result/page';
-import GameResult from '@/components/game_result/page';
+import Top from '@/components/top.vue';
+import PlayerSetting from '@/components/settings/player_setting.vue';
+import RuleSetting from '@/components/settings/rule_setting.vue';
+import RuleConfirm from '@/components/settings/rule_confirm.vue';
+
+import GameDescription from '@/components/games/game_description.vue';
+
+import NightDescription from '@/components/nights/night_description.vue';
+import NightEnter from '@/components/nights/night_enter.vue';
+import PlayerConfirm from '@/components/nights/player_confirm.vue';
+import NightAction from '@/components/nights/night_action.vue';
+import NightResult from '@/components/nights/night_result.vue';
+
+import Discuss from '@/components/days/discuss.vue';
+import DiscussFinish from '@/components/days/discuss_finish.vue';
+import VoteDescription from '@/components/days/vote_description.vue';
+import VotePlayer from '@/components/days/vote_player.vue';
+import VoteResult from '@/components/days/vote_result.vue';
+
+import GameResult from '@/components/games/game_result.vue';
 
 Vue.use(Router);
 
