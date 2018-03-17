@@ -1,6 +1,6 @@
 {
-  "name": "test_pwa_vue",
-  "short_name": "test_pwa_vue",
+  "name": "mrorowolf",
+  "short_name": "mrorowolf",
   "icons": [
     {
       "src": "/static/img/icons/android-chrome-192x192.png",

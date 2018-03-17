@@ -6,8 +6,8 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    // players: [],
-    players: [new Player("a"),new Player("b"),new Player("c"),new Player("d"),new Player("e"),new Player("f")],
+    players: [],
+    // players: [new Player("a"),new Player("b"),new Player("c"),new Player("d"),new Player("e"),new Player("f")],
     roles: {
       role_names: ['市民', '人狼', '騎士', '占い師', '霊媒師'],
       role_counts: [0, 0, 0, 0, 0],
